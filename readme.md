@@ -49,9 +49,6 @@ If you'd like to contribute to this project, feel free to fork the repository, m
 ## License
 This project is open source and available under the MIT License.
 
-vbnet
-Copy code
-
 ## How to Customize:
 - Update the project name in the title if necessary.
 - You can adjust the usage and example sections based on your script's exact behavior or output.
