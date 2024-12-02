@@ -133,10 +133,10 @@ def main():
     print(f"\nunique_word_counts:{unique_word_counts}")
     
     # 5. Plot word frequency
-    # plot_word_frequency(word_counts, top_n=10)
+    plot_word_frequency(word_counts, top_n=10)
 
     # 6. Generate word cloud (optional)
-    # generate_wordcloud(word_counts)
+    generate_wordcloud(word_counts)
     plot_word_frequency_heatmap(word_counts)
 
 if __name__ == "__main__":
