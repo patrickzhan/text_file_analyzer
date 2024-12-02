@@ -101,7 +101,7 @@ def main():
     # Check for the argument
     if len(sys.argv) < 2:
         print("Usage: python3 text_analyzer.py <file_path>")
-        print("Usage: python3 text_analyzer.py <file_path> <word>")
+        print("Usage: python3 text_analyzer.py <file_path> [word]")
         sys.exit(1)  # Exit with error code 1 if no argument is provided
 
     # 1. Load the text file
