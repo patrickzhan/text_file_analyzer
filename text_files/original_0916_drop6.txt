@@ -1,0 +1,1417 @@
+
+U-Boot SPL 2023.10-2024-11-13-11.0813-2409161221.a650aa8-31805-g69d5338be0-dirty (Nov 13 2024 - 05:03:24 -0500)
+Reset state: Cold
+MPU          1000000 kHz
+L4 Main       400000 kHz
+L4 sys free   100000 kHz
+L4 MP         200000 kHz
+L4 SP         100000 kHz
+SDMMC          50000 kHz
+DDR: 2048 MiB
+QSPI: Reference clock at 400000 kHz
+Trying to boot from MMC1
+## Checking hash(es) for config board-0 ... OK
+## Checking hash(es) for Image atf ... crc32+ OK
+## Checking hash(es) for Image uboot ... crc32+ OK
+## Checking hash(es) for Image fdt-0 ... crc32+ OK
+NOTICE:  BL31: v2.10.0  (release):QPDS24.1_REL_GSRD_PR-dirty
+NOTICE:  BL31: Built : 05:03:02, Nov 13 2024
+
+
+U-Boot 2023.10-2024-11-13-11.0813-2409161221.a650aa8-31805-g69d5338be0-dirty (Nov 13 2024 - 05:03:24 -0500)socfpga_agilex
+
+CPU:   Intel FPGA SoCFPGA Platform (ARMv8 64bit Cortex-A53)
+Model: SoCFPGA Agilex SoCDK
+DRAM:  2 GiB
+Core:  31 devices, 21 uclasses, devicetree: separate
+NAND:  0 MiB
+MMC:   dwmmc0@ff808000: 0
+Loading Environment from MMC... OK
+In:    serial0@ffc02000
+Out:   serial0@ffc02000
+Err:   serial0@ffc02000
+Net:   eth0: ethernet@ff800000
+Hit any key to stop autoboot:  0
+1915 bytes read in 2 ms (934.6 KiB/s)
+## Executing script at 05ff0000
+crc32+ 11280384 bytes read in 542 ms (19.8 MiB/s)
+...........FPGA reconfiguration OK!
+gpio: pin portb9 (gpio 33) value is 1
+Res:  0x0 0x0 0xffd120e4 0x0
+Res:  0x0 0x1 0xffd120e4 0x0
+rst_n_global has been set
+1 is not a known ethernet
+105416940 bytes read in 4899 ms (20.5 MiB/s)
+## Loading kernel from FIT Image at 10000000 ...
+   Using 'jasper' configuration
+   Verifying Hash Integrity ... OK
+   Trying 'kernel' kernel subimage
+     Description:  Linux Kernel
+     Type:         Kernel Image
+     Compression:  lzma compressed
+     Data Start:   0x100000dc
+     Data Size:    8908351 Bytes = 8.5 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: 0x06000000
+     Entry Point:  0x06000000
+     Hash algo:    crc32
+     Hash value:   fa28a385
+   Verifying Hash Integrity ... crc32+ OK
+## Loading ramdisk from FIT Image at 10000000 ...
+   Using 'jasper' configuration
+   Verifying Hash Integrity ... OK
+   Trying 'ramdisk' ramdisk subimage
+     Description:  Initramfs-image
+     Type:         RAMDisk Image
+     Compression:  uncompressed
+     Data Start:   0x10885cd4
+     Data Size:    96478890 Bytes = 92 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: unavailable
+     Entry Point:  unavailable
+     Hash algo:    crc32
+     Hash value:   5b0bc5b7
+   Verifying Hash Integrity ... crc32+ OK
+## Loading fdt from FIT Image at 10000000 ...
+   Using 'jasper' configuration
+   Verifying Hash Integrity ... OK
+   Trying 'system.dtb' fdt subimage
+     Description:  Socfpga Device Tree
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x1087f000
+     Data Size:    27689 Bytes = 27 KiB
+     Architecture: AArch64
+     Hash algo:    crc32
+     Hash value:   7cd32fce
+   Verifying Hash Integrity ... crc32+ OK
+   Booting using the fdt blob at 0x1087f000
+Working FDT set to 1087f000
+   Uncompressing Kernel Image
+   Loading Ramdisk to 78ee6000, end 7eae86aa ... OK
+   Loading Device Tree to 0000000078edc000, end 0000000078ee5c28 ... OK
+Working FDT set to 78edc000
+SF: Detected mx66u2g45g with page size 256 Bytes, erase size 64 KiB, total 256 MiB
+Enabling QSPI at Linux DTB...
+Working FDT set to 78edc000
+libfdt fdt_path_offset() returned FDT_ERR_NOTFOUND
+libfdt fdt_path_offset() returned FDT_ERR_NOTFOUND
+QSPI clock frequency updated
+RSU: Firmware or flash content not supporting RSU
+RSU: Firmware or flash content not supporting RSU
+RSU: Firmware or flash content not supporting RSU
+RSU: Firmware or flash content not supporting RSU
+
+Starting kernel ...
+
+Deasserting all peripheral resets
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.15.70-2024-11-13-11.0813-altera (wenjun@jpvm) (aarch64-linux-gnu-gcc (Linaro GCC 7.5-2019.12) 7.5.0, GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706) #1 SMP PREEMPT Wed Nov 13 05:06:49 EST 2024
+[    0.000000] Machine model: SoCFPGA Agilex SoCDK
+[    0.000000] efi: UEFI not found.
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000000000000, size 32 MiB
+[    0.000000] OF: reserved mem: initialized node svcbuffer@0, compatible id shared-dma-pool
+[    0.000000] earlycon: uart0 at MMIO32 0x00000000ffc02000 (options '115200n8')
+[    0.000000] printk: bootconsole [uart0] enabled
+[    0.000000] NUMA: No NUMA configuration found
+[    0.000000] NUMA: Faking a node at [mem 0x0000000000000000-0x000000007fffffff]
+[    0.000000] NUMA: NODE_DATA [mem 0x7fc5bc00-0x7fc5dfff]
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000000000000-0x000000007fffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x0000000001ffffff]
+[    0.000000]   node   0: [mem 0x0000000002000000-0x000000002fffffff]
+[    0.000000]   node   0: [mem 0x0000000030000000-0x000000003dffffff]
+[    0.000000]   node   0: [mem 0x000000003e000000-0x000000007fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000007fffffff]
+[    0.000000] cma: Reserved 32 MiB at 0x0000000074c00000
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.4
+[    0.000000] percpu: Embedded 20 pages/cpu s41816 r8192 d31912 u81920
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 516096
+[    0.000000] Policy zone: DMA
+[    0.000000] Kernel command line: earlycon panic=-1 root=/dev/ram rw
+[    0.000000] Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Memory: 1633288K/2097152K available (16064K kernel code, 3116K rwdata, 8552K rodata, 6336K init, 521K bss, 431096K reserved, 32768K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu:     RCU event tracing is enabled.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=4.
+[    0.000000]  Trampoline variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GIC: Using split EOI/Deactivate mode
+[    0.000000] arch_timer: cp15 timer(s) running at 400.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x5c4093a7d1, max_idle_ns: 440795210635 ns
+[    0.000001] sched_clock: 56 bits at 400MHz, resolution 2ns, wraps every 4398046511103ns
+[    0.009123] Console: colour dummy device 80x25
+[    0.013563] printk: console [tty0] enabled
+[    0.017655] printk: bootconsole [uart0] disabled
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.15.70-2024-11-13-11.0813-altera (wenjun@jpvm) (aarch64-linux-gnu-gcc (Linaro GCC 7.5-2019.12) 7.5.0, GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706) #1 SMP PREEMPT Wed Nov 13 05:06:49 EST 2024
+[    0.000000] Machine model: SoCFPGA Agilex SoCDK
+[    0.000000] efi: UEFI not found.
+[    0.000000] Reserved memory: created DMA memory pool at 0x0000000000000000, size 32 MiB
+[    0.000000] OF: reserved mem: initialized node svcbuffer@0, compatible id shared-dma-pool
+[    0.000000] earlycon: uart0 at MMIO32 0x00000000ffc02000 (options '115200n8')
+[    0.000000] printk: bootconsole [uart0] enabled
+[    0.000000] NUMA: No NUMA configuration found
+[    0.000000] NUMA: Faking a node at [mem 0x0000000000000000-0x000000007fffffff]
+[    0.000000] NUMA: NODE_DATA [mem 0x7fc5bc00-0x7fc5dfff]
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000000000000-0x000000007fffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x0000000001ffffff]
+[    0.000000]   node   0: [mem 0x0000000002000000-0x000000002fffffff]
+[    0.000000]   node   0: [mem 0x0000000030000000-0x000000003dffffff]
+[    0.000000]   node   0: [mem 0x000000003e000000-0x000000007fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000007fffffff]
+[    0.000000] cma: Reserved 32 MiB at 0x0000000074c00000
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.4
+[    0.000000] percpu: Embedded 20 pages/cpu s41816 r8192 d31912 u81920
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 516096
+[    0.000000] Policy zone: DMA
+[    0.000000] Kernel command line: earlycon panic=-1 root=/dev/ram rw
+[    0.000000] Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Memory: 1633288K/2097152K available (16064K kernel code, 3116K rwdata, 8552K rodata, 6336K init, 521K bss, 431096K reserved, 32768K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu:     RCU event tracing is enabled.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=4.
+[    0.000000]  Trampoline variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GIC: Using split EOI/Deactivate mode
+[    0.000000] arch_timer: cp15 timer(s) running at 400.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x5c4093a7d1, max_idle_ns: 440795210635 ns
+[    0.000001] sched_clock: 56 bits at 400MHz, resolution 2ns, wraps every 4398046511103ns
+[    0.009123] Console: colour dummy device 80x25
+[    0.013563] printk: console [tty0] enabled
+[    0.017655] printk: bootconsole [uart0] disabled
+[    0.022364] Calibrating delay loop (skipped), value calculated using timer frequency.. 800.00 BogoMIPS (lpj=1600000)
+[    0.022394] pid_max: default: 32768 minimum: 301
+[    0.022473] LSM: Security Framework initializing
+[    0.022615] Mount-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.022644] Mountpoint-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.024612] rcu: Hierarchical SRCU implementation.
+[    0.026448] EFI services will not be available.
+[    0.026704] smp: Bringing up secondary CPUs ...
+[    0.027285] Detected VIPT I-cache on CPU1
+[    0.027362] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.027938] Detected VIPT I-cache on CPU2
+[    0.027971] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.028508] Detected VIPT I-cache on CPU3
+[    0.028539] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.028607] smp: Brought up 1 node, 4 CPUs
+[    0.028666] SMP: Total of 4 processors activated.
+[    0.028679] CPU features: detected: 32-bit EL0 Support
+[    0.028690] CPU features: detected: 32-bit EL1 Support
+[    0.028703] CPU features: detected: CRC32 instructions
+[    0.043675] CPU: All CPU(s) started at EL2
+[    0.043733] alternatives: patching kernel code
+[    0.045850] devtmpfs: initialized
+[    0.051258] KASLR disabled due to lack of seed
+[    0.051462] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.051501] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.052763] pinctrl core: initialized pinctrl subsystem
+[    0.053898] DMI not present or invalid.
+[    0.054858] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.056681] DMA: preallocated 256 KiB GFP_KERNEL pool for atomic allocations
+[    0.056874] DMA: preallocated 256 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.057070] DMA: preallocated 256 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.057130] audit: initializing netlink subsys (disabled)
+[    0.057283] audit: type=2000 audit(0.048:1): state=initialized audit_enabled=0 res=1
+[    0.058613] thermal_sys: Registered thermal governor 'step_wise'
+[    0.058620] thermal_sys: Registered thermal governor 'power_allocator'
+[    0.058791] cpuidle: using governor menu
+[    0.059014] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.059126] ASID allocator initialised with 65536 entries
+[    0.060803] Serial: AMBA PL011 UART driver
+[    0.087719] HugeTLB registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.087774] HugeTLB registered 32.0 MiB page size, pre-allocated 0 pages
+[    0.087791] HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.087807] HugeTLB registered 64.0 KiB page size, pre-allocated 0 pages
+[    0.089105] cryptd: max_cpu_qlen set to 1000
+[    0.092917] ACPI: Interpreter disabled.
+[    0.094726] iommu: Default domain type: Translated
+[    0.094743] iommu: DMA domain TLB invalidation policy: strict mode
+[    0.094915] vgaarb: loaded
+[    0.095564] SCSI subsystem initialized
+[    0.095944] usbcore: registered new interface driver usbfs
+[    0.095997] usbcore: registered new interface driver hub
+[    0.096037] usbcore: registered new device driver usb
+[    0.096166] usb_phy_generic usbphy: supply vcc not found, using dummy regulator
+[    0.096313] usb_phy_generic usbphy: dummy supplies not allowed for exclusive requests
+[    0.097098] pps_core: LinuxPPS API ver. 1 registered
+[    0.097113] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.097144] PTP clock support registered
+[    0.097277] EDAC MC: Ver: 3.0.0
+[    0.099646] Intel Service Layer Driver Initialized
+[    0.100770] FPGA manager framework
+[    0.101004] Advanced Linux Sound Architecture Driver Initialized.
+[    0.102157] clocksource: Switched to clocksource arch_sys_counter
+[    0.102352] VFS: Disk quotas dquot_6.6.0
+[    0.102426] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.102660] pnp: PnP ACPI: disabled
+[    0.109224] NET: Registered PF_INET protocol family
+[    0.109429] IP idents hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.110685] tcp_listen_portaddr_hash hash table entries: 1024 (order: 2, 16384 bytes, linear)
+[    0.110736] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.110763] TCP established hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.110907] TCP bind hash table entries: 16384 (order: 6, 262144 bytes, linear)
+[    0.111180] TCP: Hash tables configured (established 16384 bind 16384)
+[    0.111305] UDP hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    0.111368] UDP-Lite hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    0.111546] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.111988] RPC: Registered named UNIX socket transport module.
+[    0.112005] RPC: Registered udp transport module.
+[    0.112018] RPC: Registered tcp transport module.
+[    0.112030] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.112053] PCI: CLS 0 bytes, default 64
+[    0.112306] Unpacking initramfs...
+[    0.118995] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[    0.119546] kvm [1]: IPA Size Limit: 40 bits
+[    0.121392] kvm [1]: Hyp mode initialized successfully
+[    0.126021] Initialise system trusted keyrings
+[    0.126242] workingset: timestamp_bits=42 max_order=19 bucket_order=0
+[    0.133397] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.134311] NFS: Registering the id_resolver key type
+[    0.134370] Key type id_resolver registered
+[    0.134383] Key type id_legacy registered
+[    0.134478] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.134497] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[    0.134542] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    0.135060] 9p: Installing v9fs 9p2000 file system support
+[    0.179760] Key type asymmetric registered
+[    0.179829] Asymmetric key parser 'x509' registered
+[    0.180017] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 242)
+[    0.180041] io scheduler mq-deadline registered
+[    0.180055] io scheduler kyber registered
+[    0.187075] pinctrl-single ffd13000.pinctrl: 40 pins, size 160
+[    0.187292] pinctrl-single ffd13100.pinconf: 8 pins, size 32
+[    0.193504] EINJ: ACPI disabled.
+[    0.210969] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    0.213566] ffc02000.serial: ttyS0 at MMIO 0xffc02000 (irq = 36, base_baud = 6250000) is a 16550A
+[    1.122178] printk: console [ttyS0] enabled
+[    1.128481] SuperH (H)SCI(F) driver initialized
+[    1.133636] msm_serial: driver initialized
+[    1.139796] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    1.152285] loop: module loaded
+[    1.157998] nd_pmem namespace0.0: unable to guarantee persistence of writes
+[    1.158019] megasas: 07.717.02.00-rc1
+[    1.166053] nd_pmem namespace1.0: unable to guarantee persistence of writes
+[    1.171744] spi_altera 84000000.spi: IRQ index 0 not found
+[    1.181984] spi_altera 84000000.spi: regoff 0, irq -6
+[    1.187286] spi_altera 84000020.spi: IRQ index 0 not found
+[    1.193845] spi_altera 84000020.spi: regoff 0, irq -6
+[    1.199124] spi_altera 84000040.spi: IRQ index 0 not found
+[    1.205662] spi_altera 84000040.spi: regoff 0, irq -6
+[    1.211123] spi_altera 84000080.spi: IRQ index 0 not found
+[    1.217862] spi_altera 84000080.spi: regoff 0, irq -6
+[    1.223380] spi_altera 840000a0.spi: IRQ index 0 not found
+[    1.231692] spi_altera 840000a0.spi: regoff 0, irq -6
+[    1.237021] spi_altera 84000060.spi: IRQ index 0 not found
+[    1.243189] spi_altera 84000060.spi: regoff 0, irq -6
+[    1.249973] spi-nor spi9.0: found mx66u2g45g, expected mt25qu02g
+[    1.256250] spi-nor spi9.0: mx66u2g45g (262144 Kbytes)
+[    1.258887] tpm_tis_spi spi8.0: 2.0 TPM (device-id 0x1B, rev-id 22)
+[    1.279012] tpm tpm0: A TPM error (256) occurred attempting the self test
+[    1.285845] tpm tpm0: starting up the TPM manually
+[    5.038249] Freeing initrd memory: 94216K
+[    5.047572] 17 fixed-partitions partitions found on MTD device ff8d2000.spi.0
+[    5.054745] Creating 17 MTD partitions on "ff8d2000.spi.0":
+[    5.060317] 0x000000000000-0x000000210000 : "BOOT_INFO"
+[    5.067209] 0x000000210000-0x000000310000 : "FACTORY_IMAGE"
+[    5.073921] 0x000000310000-0x000000320000 : "SPT0"
+[    5.079829] 0x000000320000-0x000000330000 : "SPT1"
+[    5.085795] 0x000000330000-0x000000340000 : "CPB0"
+[    5.091713] 0x000000340000-0x000000350000 : "CPB1"
+[    5.097602] 0x000000350000-0x000000410000 : "SPL1"
+[    5.100545] dma-pl330 ffda0000.pdma: Loaded driver for PL330 DMAC-341330
+[    5.103558] 0x000000410000-0x0000004d0000 : "SPL2"
+[    5.109087] dma-pl330 ffda0000.pdma:         DBUFF-512x8bytes Num_Chans-8 Num_Peri-32 Num_Events-8
+[    5.115018] 0x0000004d0000-0x000000650000 : "SSBL.FACTORY_IMAGE"
+[    5.129314] 0x000000650000-0x0000007d0000 : "SSBL.SPL1"
+[    5.135640] 0x0000007d0000-0x000000950000 : "SSBL.SPL2"
+[    5.142040] 0x000000950000-0x000000970000 : "BOOTENV"
+[    5.148197] 0x000000970000-0x000006d70000 : "FAPP"
+[    5.154094] 0x000006d70000-0x000006f70000 : "HWDB"
+[    5.160006] 0x000006f70000-0x000006f90000 : "AG.F"
+[    5.165934] 0x000006f90000-0x000006fb0000 : "AG"
+[    5.171684] 0x000006fb0000-0x000007090000 : "BOARD.ENV"
+[    5.179011] dw_spi_mmio ffda4000.spi: DMA init failed
+[    5.184914] dw_spi_mmio ffda5000.spi: DMA init failed
+[    5.195120] tun: Universal TUN/TAP device driver, 1.6
+[    5.201350] thunder_xcv, ver 1.0
+[    5.204626] thunder_bgx, ver 1.0
+[    5.207890] nicpf, ver 1.0
+[    5.211945] hclge is initializing
+[    5.215291] hns3: Hisilicon Ethernet Network Driver for Hip08 Family - version
+[    5.222500] hns3: Copyright (c) 2017 Huawei Corporation.
+[    5.227870] e1000: Intel(R) PRO/1000 Network Driver
+[    5.232742] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    5.238515] e1000e: Intel(R) PRO/1000 Network Driver
+[    5.243472] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    5.249416] igb: Intel(R) Gigabit Ethernet Network Driver
+[    5.254805] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    5.260394] igbvf: Intel(R) Gigabit Virtual Function Network Driver
+[    5.266649] igbvf: Copyright (c) 2009 - 2012 Intel Corporation.
+[    5.272888] sky2: driver version 1.30
+[    5.278016] socfpga-dwmac ff800000.ethernet: IRQ eth_wake_irq not found
+[    5.284623] socfpga-dwmac ff800000.ethernet: IRQ eth_lpi not found
+[    5.291154] socfpga-dwmac ff800000.ethernet: User ID: 0x11, Synopsys ID: 0x37
+[    5.298299] socfpga-dwmac ff800000.ethernet:         DWMAC1000
+[    5.303520] socfpga-dwmac ff800000.ethernet: DMA HW capability register supported
+[    5.310990] socfpga-dwmac ff800000.ethernet: RX Checksum Offload Engine supported
+[    5.318458] socfpga-dwmac ff800000.ethernet: COE Type 2
+[    5.323677] socfpga-dwmac ff800000.ethernet: TX Checksum insertion supported
+[    5.330714] socfpga-dwmac ff800000.ethernet: Enhanced/Alternate descriptors
+[    5.337662] socfpga-dwmac ff800000.ethernet: Enabled extended descriptors
+[    5.344436] socfpga-dwmac ff800000.ethernet: Ring mode enabled
+[    5.350258] socfpga-dwmac ff800000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    5.367905] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    5.374463] ehci-pci: EHCI PCI platform driver
+[    5.378934] ehci-platform: EHCI generic platform driver
+[    5.384276] ehci-orion: EHCI orion driver
+[    5.388380] ehci-exynos: EHCI Exynos driver
+[    5.392653] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    5.398840] ohci-pci: OHCI PCI platform driver
+[    5.403310] ohci-platform: OHCI generic platform driver
+[    5.408636] ohci-exynos: OHCI Exynos driver
+[    5.413404] usbcore: registered new interface driver usb-storage
+[    5.422281] i2c_dev: i2c /dev entries driver
+[    5.429330] soc64-hwmon soc:firmware:svc:hwmon: Initialized 5 temperature and 9 voltage channels
+[    5.443062] sdhci: Secure Digital Host Controller Interface driver
+[    5.449244] sdhci: Copyright(c) Pierre Ossman
+[    5.454436] Synopsys Designware Multimedia Card Interface Driver
+[    5.460754] dw_mmc ff808000.dwmmc0: IDMAC supports 32-bit address mode.
+[    5.461499] sdhci-pltfm: SDHCI platform and OF driver helper
+[    5.467385] dw_mmc ff808000.dwmmc0: Using internal DMA controller.
+[    5.479203] dw_mmc ff808000.dwmmc0: Version ID is 280a
+[    5.479284] ledtrig-cpu: registered to indicate activity on CPUs
+[    5.484385] dw_mmc ff808000.dwmmc0: DW MMC controller at irq 24,32 bit host data width,1024 deep fifo
+[    5.509748] mmc_host mmc0: card is polling.
+[    5.514057] stratix10-rsu stratix10-rsu.0: COMMAND_RSU_STATUS returned 0x7
+[    5.531316] svc_normal_to_secure_thread: STATUS_ERROR
+[    5.531319] mmc_host mmc0: Bus speed (slot 0) = 50000000Hz (slot req 400000Hz, actual 396825HZ div = 63)
+[    5.536365] stratix10-rsu stratix10-rsu.0: Failed to get retry counter 4294967296
+[    5.564138] svc_normal_to_secure_thread: STATUS_ERROR
+[    5.569198] stratix10-rsu stratix10-rsu.0: failed to get SPTs
+[    5.576923] SMCCC: SOC_ID: ARCH_SOC_ID not implemented, skipping ....
+[    5.584103] usbcore: registered new interface driver usbhid
+[    5.589669] usbhid: USB HID core driver
+[    5.597568] fpga_manager fpga0: Stratix10 SOC FPGA Manager registered
+[    5.627174] NET: Registered PF_INET6 protocol family
+[    5.633323] Segment Routing with IPv6
+[    5.637031] In-situ OAM (IOAM) with IPv6
+[    5.639927] mmc_host mmc0: Bus speed (slot 0) = 50000000Hz (slot req 52000000Hz, actual 50000000HZ div = 0)
+[    5.641000] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    5.652396] mmc0: new high speed MMC card at address 0001
+[    5.657082] NET: Registered PF_PACKET protocol family
+[    5.662630] mmcblk0: mmc0:0001 IS016G 14.6 GiB
+[    5.667051] 8021q: 802.1Q VLAN Support v1.8
+[    5.673886]  mmcblk0: p1 p2
+[    5.675814] 9pnet: Installing 9P2000 support
+[    5.679220] mmcblk0boot0: mmc0:0001 IS016G 4.00 MiB
+[    5.682839] Key type dns_resolver registered
+[    5.689320] mmcblk0boot1: mmc0:0001 IS016G 4.00 MiB
+[    5.692338] Loading compiled-in X.509 certificates
+[    5.708215] of-fpga-region soc:base_fpga_region: FPGA Region probed
+[    5.759367] 8a3400x-phc 8a3400x-phc.0.auto: 5.2.3, Id: 0x4005  HW Rev: 4  OTP Config Select: 9
+[    5.767988] 8a3400x-phc 8a3400x-phc.0.auto: requesting firmware 'idtcm.bin'
+[    7.958164] 8a3400x-phc 8a3400x-phc.0.auto: 2000 ms lock timeout: SYS APLL Loss Lock 0  SYS DPLL state 1
+[    7.967633] 8a3400x-phc 8a3400x-phc.0.auto: Continuing while SYS APLL/DPLL is not locked
+[    7.976894] 8a3400x-phc 8a3400x-phc.0.auto: PLL2 registered as ptp0
+[    7.983841] rsmu-cdev 8a3400x-cdev.1.auto: Probe rsmu0 successful
+[    7.993059] input: Jasper Interrupt collection as /devices/platform/alarm_keys@0/input/input0
+[    8.002053] of_cfs_init
+[    8.004568] of_cfs_init: OK
+[    8.007561] ALSA device list:
+[    8.010534]   No soundcards found.
+[    8.014191] dw-apb-uart ffc02000.serial: forbid DMA for kernel console
+[    8.023516] Freeing unused kernel memory: 6336K
+[    8.028128] Run /init as init process
+[    8.048624] systemd[1]: System time before build time, advancing clock.
+[    8.060933] systemd[1]: systemd 250.5+ running in system mode (-PAM -AUDIT -SELINUX -APPARMOR +IMA -SMACK +SECCOMP -GCRYPT -GNUTLS -OPENSSL +ACL +BLKID -CURL -ELFUTILS -FIDO2 -IDN2 -IDN -IPTC +KMOD -LIBCRYPTSETUP +LIBFDISK -PCRE2 -PWQUALITY -P11KIT -QRENCODE -BZIP2 -LZ4 -XZ -ZLIB +ZSTD -BPF_FRAMEWORK +XKBCOMMON +UTMP +SYSVINIT default-hierarchy=hybrid)
+[    8.092728] systemd[1]: Detected architecture arm64.
+
+Welcome to Poky (Yocto Project Reference Distro) 4.0.7 (kirkstone)!
+
+[    8.162381] systemd[1]: Hostname set to <agilex>.
+[    8.167272] systemd[1]: Initializing machine ID from random generator.
+[    8.235771] systemd[140]: /lib/systemd/system-generators/systemd-gpt-auto-generator failed with exit status 1.
+[    8.379795] systemd[1]: /lib/systemd/system/sysmgmt_ss.service:5: Unknown key name 'LimitCORE' in section 'Unit', ignoring.
+[    8.390987] systemd[1]: /lib/systemd/system/sysmgmt_ss.service:6: Unknown key name 'CoredumpFilter' in section 'Unit', ignoring.
+[    8.410808] systemd[1]: Configuration file /lib/systemd/system/mtvram.service is marked executable. Please remove executable permission bits. Proceeding anyway.
+[    8.518182] systemd[1]: Queued start job for default target Multi-User System.
+[    8.565010] systemd[1]: Created slice Slice /system/getty.
+[  OK  ] Created slice Slice /system/getty.
+[    8.584420] systemd[1]: Created slice Slice /system/modprobe.
+[  OK  ] Created slice Slice /system/modprobe.
+[    8.604031] systemd[1]: Created slice Slice /system/serial-getty.
+[  OK  ] Created slice Slice /system/serial-getty.
+[    8.623928] systemd[1]: Created slice User and Session Slice.
+[  OK  ] Created slice User and Session Slice.
+[    8.638576] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.
+[  OK  ] Started Dispatch Password …ts to Console Directory Watch.
+[    8.658422] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[  OK  ] Started Forward Password R…uests to Wall Directory Watch.
+[    8.686548] systemd[1]: Reached target Path Units.
+[  OK  ] Reached target Path Units.
+[    8.702281] systemd[1]: Reached target Remote File Systems.
+[  OK  ] Reached target Remote File Systems.
+[    8.718258] systemd[1]: Reached target Slice Units.
+[  OK  ] Reached target Slice Units.
+[    8.734299] systemd[1]: Reached target Swaps.
+[  OK  ] Reached target Swaps.
+[    8.750900] systemd[1]: Listening on Syslog Socket.
+[  OK  ] Listening on Syslog Socket.
+[    8.772725] systemd[1]: Listening on Process Core Dump Socket.
+[  OK  ] Listening on Process Core Dump Socket.
+[    8.790537] systemd[1]: Listening on initctl Compatibility Named Pipe.
+[  OK  ] Listening on initctl Compatibility Named Pipe.
+[    8.806941] systemd[1]: Listening on Journal Audit Socket.
+[  OK  ] Listening on Journal Audit Socket.
+[    8.822606] systemd[1]: Listening on Journal Socket (/dev/log).
+[  OK  ] Listening on Journal Socket (/dev/log).
+[    8.838701] systemd[1]: Listening on Journal Socket.
+[  OK  ] Listening on Journal Socket.
+[    8.854888] systemd[1]: Listening on Network Service Netlink Socket.
+[  OK  ] Listening on Network Service Netlink Socket.
+[    8.870718] systemd[1]: Listening on udev Control Socket.
+[  OK  ] Listening on udev Control Socket.
+[    8.886571] systemd[1]: Listening on udev Kernel Socket.
+[  OK  ] Listening on udev Kernel Socket.
+[    8.902587] systemd[1]: Listening on User Database Manager Socket.
+[  OK  ] Listening on User Database Manager Socket.
+[    8.922963] systemd[1]: Mounting Huge Pages File System...
+         Mounting Huge Pages File System...
+[    8.942795] systemd[1]: Mounting POSIX Message Queue File System...
+         Mounting POSIX Message Queue File System...
+[    8.962865] systemd[1]: Mounting Kernel Debug File System...
+         Mounting Kernel Debug File System...
+[    8.978862] systemd[1]: Kernel Trace File System was skipped because of a failed condition check (ConditionPathExists=/sys/kernel/tracing).
+[    8.996196] systemd[1]: Mounting Temporary Directory /tmp...
+         Mounting Temporary Directory /tmp...
+[    9.014685] systemd[1]: Create List of Static Device Nodes was skipped because of a failed condition check (ConditionFileNotEmpty=/lib/modules/5.15.70-2024-11-13-11.0813-altera/modules.devname).
+[    9.037197] systemd[1]: Starting Load Kernel Module configfs...
+         Starting Load Kernel Module configfs...
+[    9.059845] systemd[1]: Starting Load Kernel Module drm...
+         Starting Load Kernel Module drm...
+[    9.079249] systemd[1]: Starting Load Kernel Module fuse...
+         Starting Load Kernel Module fuse...
+[    9.094573] systemd[1]: File System Check on Root Device was skipped because of a failed condition check (ConditionPathIsReadWrite=!/).
+[    9.107808] systemd[1]: systemd-journald.service: unit configures an IP firewall, but the local system does not support BPF/cgroup firewalling.
+[    9.120684] systemd[1]: (This warning is only shown for the first unit using IP firewalling.)
+[    9.135186] systemd[1]: Starting Journal Service...
+         Starting Journal Service...
+[    9.151359] systemd[1]: Load Kernel Modules was skipped because all trigger condition checks failed.
+[    9.165664] systemd[1]: Starting Generate network units from Kernel command line...
+         Starting Generate network …ts from Kernel command line...
+[    9.187783] systemd[1]: Starting Remount Root and Kernel File Systems...
+         Starting Remount Root and Kernel File Systems...
+[    9.211964] systemd[1]: Starting Apply Kernel Variables...
+         Starting Apply Kernel Variables...
+[    9.239750] systemd[1]: Starting Coldplug All udev Devices...
+         Starting Coldplug All udev Devices...
+[    9.266133] systemd[1]: Mounted Huge Pages File System.
+[  OK  ] Mounted Huge Pages File System.
+[    9.287110] systemd[1]: Started Journal Service.
+[  OK  ] Started Journal Service.
+[  OK  ] Mounted POSIX Message Queue File System.
+[  OK  ] Mounted Kernel Debug File System.
+[  OK  ] Mounted Temporary Directory /tmp.
+[  OK  ] Finished Load Kernel Module configfs.
+[  OK  ] Finished Load Kernel Module drm.
+[  OK  ] Finished Load Kernel Module fuse.
+[  OK  ] Finished Generate network units from Kernel command line.
+[  OK  ] Finished Remount Root and Kernel File Systems.
+[  OK  ] Finished Apply Kernel Variables.
+[  OK  ] Reached target Preparation for Network.
+         Mounting Kernel Configuration File System...
+         Starting Flush Journal to Persistent Storage...
+[    9.475860] systemd-journald[157]: Received client request to flush runtime journal.
+         Starting Create System Users...
+[  OK  ] Mounted Kernel Configuration File System.
+[  OK  ] Finished Flush Journal to Persistent Storage.
+[  OK  ] Finished Create System Users.
+         Starting Create Static Device Nodes in /dev...
+[  OK  ] Finished Create Static Device Nodes in /dev.
+[  OK  ] Reached target Preparation for Local File Systems.
+         Mounting /var/volatile...
+         Starting Rule-based Manage…for Device Events and Files...
+[  OK  ] Mounted /var/volatile.
+         Starting Load/Save Random Seed...
+[  OK  ] Reached target Local File Systems.
+         Starting Rebuild Dynamic Linker Cache...
+         Starting Create Volatile Files and Directories...
+[  OK  ] Started Rule-based Manager for Device Events and Files.
+         Starting Network Configuration...
+[  OK  ] Finished Rebuild Dynamic Linker Cache.
+[  OK  ] Finished Create Volatile Files and Directories.
+         Starting Rebuild Journal Catalog...
+         Starting Network Time Synchronization...
+         Starting Record System Boot/Shutdown in UTMP...
+[  OK  ] Finished Rebuild Journal Catalog.
+[  OK  ] Finished Record System Boot/Shutdown in UTMP.
+         Starting Update is Completed...
+[  OK  ] Finished Update is Completed.
+[  OK  ] Started Network Configuration.
+[  OK  ] Finished Coldplug All udev Devices.
+         Starting Wait for Network to be Configured...
+         Starting Network Name Resolution...
+[  OK  ] Started Network Time Synchronization.
+[  OK  ] Reached target System Initialization.
+[  OK  ] Started Daily Cleanup of Temporary Directories.
+[  OK  ] Reached target System Time Set.
+[  OK  ] Started Daily rotation of log files.
+[  OK  ] Reached target Timer Units.
+[  OK  ] Listening on D-Bus System Message Bus Socket.
+         Starting sshd.socket...
+[  OK  ] Started Network Name Resolution.
+[  OK  ] Listening on sshd.socket.
+[  OK  ] Reached target Network.
+[  OK  ] Reached target Host and Network Name Lookups.
+[  OK  ] Reached target Socket Units.
+[  OK  ] Reached target Basic System.
+[  OK  ] Started HW WD & Cold restart record in rlog.
+[  OK  ] Started Periodic Command Scheduler.
+         Starting D-Bus System Message Bus...
+[   10.576880] random: dbus-daemon: uninitialized urandom read (12 bytes read)
+[  OK  ] Started Getty on tty1.
+         Starting ipc server...
+[   10.606054] random: dbus-daemon: uninitialized urandom read (12 bytes read)
+[  OK  ] Started koror Init script.
+[   10.624651] sys_cfg_pabias.sh[212]: File not found!
+         Starting Mount Virtual non…M as ramdisk for log system...
+[  OK  ] Started Serial Getty on ttyS0.
+[  OK  ] Reached target Login Prompts.
+[   10.670497] mtvram.sh[213]: mtvram.sh: File-system Verifying for /dev/pmem0
+[   10.700759] mtvram.sh[213]: mtvram.sh: Can't correct fs errors (8), ongoing to format the partiton: /dev/pmem0!
+[   10.712618] mtvram.sh[213]: mtvram.sh: Creating /dev/pmem0 in format of ext4:
+         Starting User Login Management...
+[  OK  ] Started unix socket message bus.
+         Starting OpenSSH Key Generation...
+[  OK  ] Started D-Bus System Message Bus.
+[   10.812381] socfpga-dwmac ff800000.ethernet debug: renamed from eth0
+[   10.954228] random: crng init done
+[  OK  ] Finished Load/Save Random Seed.
+[   11.035873] EXT4-fs (pmem0): mounted filesystem with ordered data mode. Opts: (null). Quota mode: none.
+[   11.028088] mtvram.sh[213]: mtvram.sh: Mounted /dev/pmem0 (ext4) on /ram1
+[   11.090748] mtvram.sh[213]: mtvram.sh: File-system Verifying for /dev/pmem1[   11.102756] EXT4-fs (pmem1): mounted filesystem with ordered data mode. Opts: (null). Quota mode: none.
+
+[   11.108241] mtvram.sh[213]: mtvram.sh: Can't correct fs errors (8), ongoing to format the partiton: /dev/pmem1!
+[   11.128660] mtvram.sh[213]: mtvram.sh: Creating /dev/pmem1 in format of ext4:
+[   11.145093] mtvram.sh[213]: mtvram.sh: Mounted /dev/pmem1 (ext4) on /ram2
+[   11.154360] mtvram.sh[213]: mtvram.sh: ### /ram1 setup -> zlog
+[   11.180632] mtvram.sh[213]: mtvram.sh: ### /ram2 setup -> racd
+[   11.236565] mtvram.sh[213]: mtvram.sh: ### /ram2 setup -> journal
+[   11.343404] systemd-journald[157]: Received client request to flush runtime journal.
+[  OK  ] Started User Login Management.
+[  OK  ] Finished Mount Virtual non…RAM as ramdisk for log system.
+         Starting Low Level Init script...
+[   11.470637] low-level-init[289]: Starting low-level-init
+[   11.593144] socfpga-dwmac ff800000.ethernet debug: PHY [stmmac-0:00] driver [Generic PHY] (irq=POLL)
+[  OK  ] Finished Low Level Init script.
+         Starting Samsung mplance startup...
+[   11.668631] sysmgmt_ss[307]: Cannot read environment, using default
+[   11.689938] sysmgmt_ss[311]: Cannot read environment, using default
+[   11.710306] sysmgmt_ss[315]: Cannot read environment, using default
+[   11.730354] sysmgmt_ss[319]: Cannot read environment, using default
+[   11.750653] sysmgmt_ss[323]: Cannot read environment, using default
+[   11.769893] sysmgmt_ss[305]: ===================================================================
+[   11.780423] sysmgmt_ss[305]: ------------------- Reset FPGA ---------------------
+[   11.792293] sysmgmt_ss[305]: ===================================================================
+[   11.805158] sysmgmt_ss[326]: librsu: load_spt(): Bad SPT1 magic number 0x879A314B [MED]
+[   11.816331] sysmgmt_ss[326]: librsu: load_spt(): Bad SPT0 magic number 0x62294895 [MED]
+[   11.828291] sysmgmt_ss[326]: librsu: load_spt(): error: No valid SPT0 or SPT1 found [LOW]
+[   11.883039] sysmgmt_ss[305]: ===================================================================
+[   11.900640] sysmgmt_ss[305]: >>> FPGA ready now! <<<
+[   11.916239] sysmgmt_ss[305]: ===================================================================
+[  OK  ] Finished OpenSSH Key Generation.
+[   13.888714] sysmgmt_ss[305]: Loading F-Tile Driver...
+[  OK  ] Started ipc server.
+
+Poky (Yocto Project Reference Distro) 4.0.7 agilex ttyS0
+
+agilex login: [   18.953284] sysmgmt_ss[305]: ===================================================================
+[   18.953899] sysmgmt_ss[305]: ------------------- Set fheth ---------------------
+[   18.954365] sysmgmt_ss[305]: ===================================================================
+[   18.954554] sysmgmt_ss[305]: ===================================================================
+[   18.956975] sysmgmt_ss[369]: ID=poky
+[   18.957287] sysmgmt_ss[369]: NAME="Poky (Yocto Project Reference Distro)"
+[   18.957504] sysmgmt_ss[369]: VERSION="4.0.7 (kirkstone)"
+[   18.957770] sysmgmt_ss[369]: VERSION_ID=4.0.7
+[   18.957951] sysmgmt_ss[369]: PRETTY_NAME="Poky (Yocto Project Reference Distro) 4.0.7 (kirkstone)"
+[   18.958143] sysmgmt_ss[369]: DISTRO_CODENAME="kirkstone"
+[   18.958376] sysmgmt_ss[369]: BUILD_VERSION="V0.5.5 2024-09-10"
+[   18.958588] sysmgmt_ss[369]: PLL_8A34005="3V0"
+[   18.958773] sysmgmt_ss[369]: commit 12d14dd0f0ab416a5ab63860b18d96fab0daac53
+[   18.958957] sysmgmt_ss[369]: Author: 彭文军 <wenjun.peng@bmisolution.com>
+[   18.959197] sysmgmt_ss[369]: Date:   Wed Nov 13 17:06:19 2024 +0800
+[   18.959390] sysmgmt_ss[369]:     1. add run clgc run condition, avoid repeat call run CLGC API in 500ms
+[   18.959581] sysmgmt_ss[369]:     2. modify backoff detect sensor to PA, start backoff temperature set to 105℃
+[   18.959794] sysmgmt_ss[369]:     3. add raito to adjust temperature compensation, default ratio is 0.7
+[   18.959992] sysmgmt_ss[369]:     4. add cmd to adjust temperature ratio
+[   18.960296] sysmgmt_ss[369]:
+[   18.960486] sysmgmt_ss[369]:     Change-Id: I1fe801f68b3621f3dfb3ce92d2035177a4151221
+[   18.960811] sysmgmt_ss[305]: ===================================================================
+[   18.961098] sysmgmt_ss[305]: ===================================================================
+[   18.961541] sysmgmt_ss[305]: ------------------- Starting SAMSUNG M-Plane software ---------------------
+[   18.961753] sysmgmt_ss[305]: ===================================================================
+[   19.021172] sysmgmt_ss[305]: ------------------- oranuser created ---------------------
+[   19.021718] sysmgmt_ss[305]: Creating "mavenirru" directory for runtime files
+[   19.025665] sysmgmt_ss[305]: Creating "mavenirru" directory for lock files
+[   19.029923] sysmgmt_ss[305]: Check Sysrepo ORAN Init
+[   19.039690] sysmgmt_ss[386]: Sysrepo ORAN Init
+[   19.050998] sysmgmt_ss[386]: File o-ran-mplane-int_startup_ss.xml not found in the /O-RAN/config/sysrepo.
+[   19.061731] sysmgmt_ss[386]: Copying default o-ran-mplane-int_startup_ss.xml to /O-RAN/config/sysrepo.
+[   19.071697] sysmgmt_ss[386]: File o-ran-usermgmt_startup.xml not found in the /O-RAN/config/sysrepo.
+[   19.082563] sysmgmt_ss[386]: Copying default o-ran-usermgmt_startup.xml to /O-RAN/config/sysrepo.
+[   19.088699] sysmgmt_ss[386]: File rsa_key not found in the /O-RAN/config/sysrepo.
+[   19.095511] sysmgmt_ss[386]: Copying default rsa_key to /O-RAN/config/sysrepo.
+[   19.105877] sysmgmt_ss[386]: Copying default ietf-netconf-acm_startup_ss.xml to /O-RAN/config/sysrepo.
+[   19.108961] sysmgmt_ss[386]: Installing YANG models...
+[   19.118231] sysmgmt_ss[386]: ===================================================================
+[   19.121895] sysmgmt_ss[386]: Model installation started
+[   19.129001] sysmgmt_ss[386]: bash version: 5 1 16 1 release aarch64-poky-linux-gnu
+[   19.133547] sysmgmt_ss[386]: JQ version : jq-1.6-145-ga9f97e9e
+[   19.135300] sysmgmt_ss[386]: SYSREPOCTL :
+[   19.141414] sysmgmt_ss[386]: ORAN_STARTUP_XML_DIR : /O-RAN/config/sysrepo
+[   19.143363] sysmgmt_ss[386]: MODULES_DIR : /
+[   19.144941] sysmgmt_ss[386]: PERMS : 660
+[   19.146576] sysmgmt_ss[386]: OWNER : root
+[   19.148313] sysmgmt_ss[386]: GROUP : root
+[   19.150880] sysmgmt_ss[386]: LOGGING_LEVEL : -v3
+[   19.154143] sysmgmt_ss[386]: Currect sysrepo status:
+[   19.179410] sysmgmt_ss[386]: Sysrepo repository: /etc/sysrepo
+[   19.192642] sysmgmt_ss[386]: Module Name                | Revision   | Flags | Owner     | Permissions | Submodules | Features
+[   19.206950] sysmgmt_ss[386]: -------------------------------------------------------------------------------------------------
+[   19.219514] sysmgmt_ss[386]: ietf-datastores            | 2018-02-14 | I     | root:root | 444         |            |
+[   19.233271] sysmgmt_ss[386]: ietf-inet-types            | 2013-07-15 | i     |           |             |            |
+[   19.246975] sysmgmt_ss[386]: ietf-netconf               | 2013-09-29 | I     | root:root | 644         |            |
+[   19.259205] sysmgmt_ss[386]: ietf-netconf-acm           | 2018-02-14 | i     |           |             |            |
+[   19.272291] sysmgmt_ss[386]: ietf-netconf-notifications | 2012-02-06 | I     | root:root | 644         |            |
+[   19.285412] sysmgmt_ss[386]: ietf-netconf-with-defaults | 2011-06-01 | I     | root:root | 444         |            |
+[   19.297933] sysmgmt_ss[386]: ietf-origin                | 2018-02-14 | I     | root:root | 444         |            |
+[   19.309623] sysmgmt_ss[386]: ietf-yang-library          | 2019-01-04 | I     | root:root | 644         |            |
+[   19.321353] sysmgmt_ss[386]: ietf-yang-metadata         | 2016-08-05 | i     |           |             |            |
+[   19.333870] sysmgmt_ss[386]: ietf-yang-types            | 2013-07-15 | i     |           |             |            |
+[   19.346782] sysmgmt_ss[386]: sysrepo-monitoring         | 2021-07-29 | I     | root:root | 644         |            |
+[   19.359686] sysmgmt_ss[386]: sysrepo-plugind            | 2020-12-10 | I     | root:root | 644         |            |
+[   19.372276] sysmgmt_ss[386]: yang                       | 2021-04-07 | I     | root:root | 444         |            |
+[   19.387341] sysmgmt_ss[386]: Flags meaning: I - Installed/i - Imported; R - Replay support; N - New/X - Removed/U - Updated; F - Feature changes
+[   19.399226] sysmgmt_ss[386]: Features: ! - Means that the feature is effectively disabled because of its false if-feature(s)
+[   19.407878] sysmgmt_ss[386]: ===================================================================
+[   19.440488] sysmgmt_ss[386]: [INF] Found installed module: ietf-netconf 2013-09-29 I root root 644
+[   19.447089] sysmgmt_ss[386]: [INF] Enabling feature: writable-running @ ietf-netconf
+[   19.457647] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   19.478901] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   19.482433] sysmgmt_ss[386]: [INF] Connection 3 created.
+[   19.491505] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "writable-running" enabling scheduled.
+[   19.495989] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   19.500839] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   19.558815] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "writable-running" was enabled.
+[   19.562973] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   19.569342] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   19.572801] sysmgmt_ss[386]: [INF] Connection 4 created.
+[   19.577232] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   19.582863] sysmgmt_ss[386]: [INF] Enabling feature: candidate @ ietf-netconf
+[   19.595712] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   19.617157] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   19.620434] sysmgmt_ss[386]: [INF] Connection 5 created.
+[   19.628441] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "candidate" enabling scheduled.
+[   19.632880] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   19.640979] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   19.697410] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "candidate" was enabled.
+[   19.701410] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   19.708865] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   19.712375] sysmgmt_ss[386]: [INF] Connection 6 created.
+[   19.718116] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   19.724821] sysmgmt_ss[386]: [INF] Enabling feature: rollback-on-error @ ietf-netconf
+[   19.735845] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   19.757262] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   19.760656] sysmgmt_ss[386]: [INF] Connection 7 created.
+[   19.769789] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "rollback-on-error" enabling scheduled.
+[   19.774178] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   19.781075] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   19.838363] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "rollback-on-error" was enabled.
+[   19.842770] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   19.849531] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   19.853150] sysmgmt_ss[386]: [INF] Connection 8 created.
+[   19.857852] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   19.863660] sysmgmt_ss[386]: [INF] Enabling feature: validate @ ietf-netconf
+[   19.876530] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   19.897750] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   19.901267] sysmgmt_ss[386]: [INF] Connection 9 created.
+[   19.909651] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "validate" enabling scheduled.
+[   19.914176] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   19.921529] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   19.978034] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "validate" was enabled.
+[   19.982156] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   19.989456] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   19.993269] sysmgmt_ss[386]: [INF] Connection 10 created.
+[   19.999331] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   20.005242] sysmgmt_ss[386]: [INF] Enabling feature: startup @ ietf-netconf
+[   20.016772] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   20.038095] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   20.042995] sysmgmt_ss[386]: [INF] Connection 11 created.
+[   20.050024] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "startup" enabling scheduled.
+[   20.054645] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   20.062098] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   20.118128] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "startup" was enabled.
+[   20.122302] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   20.130087] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   20.135315] sysmgmt_ss[386]: [INF] Connection 12 created.
+[   20.139974] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   20.145161] sysmgmt_ss[386]: [INF] Enabling feature: url @ ietf-netconf
+[   20.157269] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   20.178466] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   20.182129] sysmgmt_ss[386]: [INF] Connection 13 created.
+[   20.189644] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "url" enabling scheduled.
+[   20.194158] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   20.202552] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   20.258386] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "url" was enabled.
+[   20.262592] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   20.270438] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   20.275679] sysmgmt_ss[386]: [INF] Connection 14 created.
+[   20.280439] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   20.285896] sysmgmt_ss[386]: [INF] Enabling feature: xpath @ ietf-netconf
+[   20.297700] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   20.319040] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   20.322665] sysmgmt_ss[386]: [INF] Connection 15 created.
+[   20.330688] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "xpath" enabling scheduled.
+[   20.335412] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   20.343064] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   20.398976] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "xpath" was enabled.
+[   20.403193] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   20.410891] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   20.414703] sysmgmt_ss[386]: [INF] Connection 16 created.
+[   20.421154] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   20.427820] sysmgmt_ss[386]: [INF] Enabling feature: confirmed-commit @ ietf-netconf
+[   20.438381] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   20.459506] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   20.463075] sysmgmt_ss[386]: [INF] Connection 17 created.
+[   20.472457] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "confirmed-commit" enabling scheduled.
+[   20.477027] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   20.483817] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   20.541372] sysmgmt_ss[386]: [INF] Module "ietf-netconf" feature "confirmed-commit" was enabled.
+[   20.545460] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   20.552052] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   20.555779] sysmgmt_ss[386]: [INF] Connection 18 created.
+[   20.561695] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   20.625958] sysmgmt_ss[386]: [INF] Installing module: ietf-netconf-monitoring @ ietf-netconf-monitoring@2010-10-04.yang
+[   20.637635] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   20.659071] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   20.662666] sysmgmt_ss[386]: [INF] Connection 20 created.
+[   20.719617] sysmgmt_ss[386]: [INF] Module "ietf-netconf-monitoring" scheduled for installation.
+[   20.724375] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   20.846877] sysmgmt_ss[386]: [INF] Installing module: ietf-netconf-nmda @ ietf-netconf-nmda@2019-01-07.yang
+[   20.860271] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   20.885639] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   20.889218] sysmgmt_ss[386]: [INF] Connection 22 created.
+[   20.951985] sysmgmt_ss[386]: [INF] Module "ietf-netconf-nmda" scheduled for installation.
+[   20.956652] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   20.968133] sysmgmt_ss[386]: [INF] Enabling feature: origin @ ietf-netconf-nmda
+[   20.985005] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   21.058021] sysmgmt_ss[386]: [INF] File "ietf-netconf-nmda@2019-01-07.yang" was installed.
+[   21.062560] sysmgmt_ss[386]: [INF] Module "ietf-netconf-nmda" was installed.
+[   21.066542] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   21.072702] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   21.076097] sysmgmt_ss[386]: [INF] Connection 23 created.
+[   21.084467] sysmgmt_ss[386]: [INF] Module "ietf-netconf-nmda" feature "origin" enabling scheduled.
+[   21.088745] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   21.095672] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   21.167845] sysmgmt_ss[386]: [INF] Module "ietf-netconf-nmda" feature "origin" was enabled.
+[   21.171807] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   21.182406] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   21.186036] sysmgmt_ss[386]: [INF] Connection 24 created.
+[   21.190621] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   21.197527] sysmgmt_ss[386]: [INF] Enabling feature: with-defaults @ ietf-netconf-nmda
+[   21.211969] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   21.241206] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   21.244700] sysmgmt_ss[386]: [INF] Connection 25 created.
+[   21.253965] sysmgmt_ss[386]: [INF] Module "ietf-netconf-nmda" feature "with-defaults" enabling scheduled.
+[   21.258251] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   21.268029] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   21.342253] sysmgmt_ss[386]: [INF] Module "ietf-netconf-nmda" feature "with-defaults" was enabled.
+[   21.346378] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   21.355761] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   21.359555] sysmgmt_ss[386]: [INF] Connection 26 created.
+[   21.364517] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   21.440282] sysmgmt_ss[386]: [INF] Installing module: nc-notifications @ nc-notifications@2008-07-14.yang
+[   21.454072] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   21.482789] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   21.486221] sysmgmt_ss[386]: [INF] Connection 28 created.
+[   21.549814] sysmgmt_ss[386]: [INF] Module "nc-notifications" scheduled for installation.
+[   21.557161] sysmgmt_ss[386]: [INF] File "notifications@2008-07-14.yang" was installed.
+[   21.563454] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   21.697700] sysmgmt_ss[386]: [INF] Installing module: notifications @ notifications@2008-07-14.yang
+[   21.712141] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   21.743408] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   21.746931] sysmgmt_ss[386]: [INF] Connection 30 created.
+[   21.798980] sysmgmt_ss[386]: [INF] Module "notifications" scheduled for installation.
+[   21.803730] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   21.955069] sysmgmt_ss[386]: [INF] Installing module: ietf-x509-cert-to-name @ ietf-x509-cert-to-name@2014-12-10.yang
+[   21.967703] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   21.998975] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   22.002559] sysmgmt_ss[386]: [INF] Connection 32 created.
+[   22.066292] sysmgmt_ss[386]: [INF] Module "ietf-x509-cert-to-name" scheduled for installation.
+[   22.069832] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   22.223282] sysmgmt_ss[386]: [INF] Installing module: ietf-crypto-types @ ietf-crypto-types@2019-07-02.yang
+[   22.237079] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   22.271571] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   22.275112] sysmgmt_ss[386]: [INF] Connection 34 created.
+[   22.359798] sysmgmt_ss[386]: [INF] Module "ietf-crypto-types" scheduled for installation.
+[   22.366268] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   22.547608] sysmgmt_ss[386]: [INF] Installing module: ietf-keystore @ ietf-keystore@2019-07-02.yang
+[   22.562843] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   22.613530] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   22.617061] sysmgmt_ss[386]: [INF] Connection 36 created.
+[   22.706282] sysmgmt_ss[386]: [INF] Module "ietf-keystore" scheduled for installation.
+[   22.713443] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   22.730019] sysmgmt_ss[386]: [INF] Enabling feature: keystore-supported @ ietf-keystore
+[   22.746593] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   22.877672] sysmgmt_ss[386]: [INF] File "ietf-keystore@2019-07-02.yang" was installed.
+[   22.883402] sysmgmt_ss[386]: [INF] Module "ietf-keystore" was installed.
+[   22.887394] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   22.900498] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   22.904106] sysmgmt_ss[386]: [INF] Connection 37 created.
+[   22.913703] sysmgmt_ss[386]: [INF] Module "ietf-keystore" feature "keystore-supported" enabling scheduled.
+[   22.918213] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   22.930752] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   23.067431] sysmgmt_ss[386]: [INF] Module "ietf-keystore" feature "keystore-supported" was enabled.
+[   23.070299] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   23.088698] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   23.092409] sysmgmt_ss[386]: [INF] Connection 38 created.
+[   23.097293] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   23.213382] sysmgmt_ss[386]: [INF] Installing module: ietf-truststore @ ietf-truststore@2019-07-02.yang
+[   23.227848] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   23.287842] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   23.291362] sysmgmt_ss[386]: [INF] Connection 40 created.
+[   23.389921] sysmgmt_ss[386]: [INF] Module "ietf-truststore" scheduled for installation.
+[   23.397248] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   23.415077] sysmgmt_ss[386]: [INF] Enabling feature: truststore-supported @ ietf-truststore
+[   23.431349] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   23.580365] sysmgmt_ss[386]: [INF] File "ietf-truststore@2019-07-02.yang" was installed.
+[   23.586152] sysmgmt_ss[386]: [INF] Module "ietf-truststore" was installed.
+[   23.590196] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   23.606008] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   23.609658] sysmgmt_ss[386]: [INF] Connection 41 created.
+[   23.619800] sysmgmt_ss[386]: [INF] Module "ietf-truststore" feature "truststore-supported" enabling scheduled.
+[   23.624436] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   23.637973] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   23.784116] sysmgmt_ss[386]: [INF] Module "ietf-truststore" feature "truststore-supported" was enabled.
+[   23.788103] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   23.806531] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   23.810122] sysmgmt_ss[386]: [INF] Connection 42 created.
+[   23.814713] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   23.823502] sysmgmt_ss[386]: [INF] Enabling feature: x509-certificates @ ietf-truststore
+[   23.840584] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   23.905645] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   23.909141] sysmgmt_ss[386]: [INF] Connection 43 created.
+[   23.918764] sysmgmt_ss[386]: [INF] Module "ietf-truststore" feature "x509-certificates" enabling scheduled.
+[   23.923206] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   23.939674] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   24.087364] sysmgmt_ss[386]: [INF] Module "ietf-truststore" feature "x509-certificates" was enabled.
+[   24.090186] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   24.109742] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   24.113205] sysmgmt_ss[386]: [INF] Connection 44 created.
+[   24.117850] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   24.241172] sysmgmt_ss[386]: [INF] Installing module: ietf-tcp-common @ ietf-tcp-common@2019-07-02.yang
+[   24.256299] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   24.321575] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   24.324945] sysmgmt_ss[386]: [INF] Connection 46 created.
+[   24.415381] sysmgmt_ss[386]: [INF] Module "ietf-tcp-common" scheduled for installation.
+[   24.422617] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   24.440536] sysmgmt_ss[386]: [INF] Enabling feature: keepalives-supported @ ietf-tcp-common
+[   24.457493] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   24.604575] sysmgmt_ss[386]: [INF] File "ietf-tcp-common@2019-07-02.yang" was installed.
+[   24.610332] sysmgmt_ss[386]: [INF] Module "ietf-tcp-common" was installed.
+[   24.614437] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   24.630630] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   24.634341] sysmgmt_ss[386]: [INF] Connection 47 created.
+[   24.644726] sysmgmt_ss[386]: [INF] Module "ietf-tcp-common" feature "keepalives-supported" enabling scheduled.
+[   24.649358] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   24.662873] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   24.811815] sysmgmt_ss[386]: [INF] Module "ietf-tcp-common" feature "keepalives-supported" was enabled.
+[   24.815959] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   24.835643] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   24.839248] sysmgmt_ss[386]: [INF] Connection 48 created.
+[   24.844145] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   24.969980] sysmgmt_ss[386]: [INF] Installing module: ietf-ssh-server @ ietf-ssh-server@2019-07-02.yang
+[   24.984595] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   25.050810] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   25.054563] sysmgmt_ss[386]: [INF] Connection 50 created.
+[   25.169196] sysmgmt_ss[386]: [INF] Module "ietf-ssh-server" scheduled for installation.
+[   25.175420] sysmgmt_ss[386]: [INF] File "ietf-ssh-common@2019-07-02.yang" was installed.
+[   25.183096] sysmgmt_ss[386]: [INF] File "iana-crypt-hash@2014-08-06.yang" was installed.
+[   25.187951] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   25.197072] sysmgmt_ss[386]: [INF] Enabling feature: local-client-auth-supported @ ietf-ssh-server
+[   25.213020] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   25.382121] sysmgmt_ss[386]: [INF] File "ietf-ssh-server@2019-07-02.yang" was installed.
+[   25.387839] sysmgmt_ss[386]: [INF] Module "ietf-ssh-server" was installed.
+[   25.391983] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   25.409012] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   25.412682] sysmgmt_ss[386]: [INF] Connection 51 created.
+[   25.423677] sysmgmt_ss[386]: [INF] Module "ietf-ssh-server" feature "local-client-auth-supported" enabling scheduled.
+[   25.428171] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   25.442594] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   25.614144] sysmgmt_ss[386]: [INF] Module "ietf-ssh-server" feature "local-client-auth-supported" was enabled.
+[   25.618290] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   25.638153] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   25.641894] sysmgmt_ss[386]: [INF] Connection 52 created.
+[   25.646662] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   25.790769] sysmgmt_ss[386]: [INF] Installing module: ietf-subscribed-notifications @ ietf-subscribed-notifications@2019-09-09.yang
+[   25.802182] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   25.879526] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   25.883066] sysmgmt_ss[386]: [INF] Connection 54 created.
+[   26.098089] sysmgmt_ss[386]: [INF] Module "ietf-subscribed-notifications" scheduled for installation.
+[   26.105916] sysmgmt_ss[386]: [INF] File "ietf-interfaces@2018-02-20.yang" was installed.
+[   26.114279] sysmgmt_ss[386]: [INF] File "ietf-network-instance@2019-01-21.yang" was installed.
+[   26.120829] sysmgmt_ss[386]: [INF] File "ietf-ip@2018-02-22.yang" was installed.
+[   26.129845] sysmgmt_ss[386]: [INF] File "ietf-yang-schema-mount@2019-01-14.yang" was installed.
+[   26.136821] sysmgmt_ss[386]: [INF] File "ietf-restconf@2017-01-26.yang" was installed.
+[   26.141370] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   26.149644] sysmgmt_ss[386]: [INF] Enabling feature: encode-xml @ ietf-subscribed-notifications
+[   26.153711] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   26.390528] sysmgmt_ss[386]: [INF] File "ietf-subscribed-notifications@2019-09-09.yang" was installed.
+[   26.396966] sysmgmt_ss[386]: [INF] Module "ietf-subscribed-notifications" was installed.
+[   26.404105] sysmgmt_ss[386]: [INF] Dependency module "ietf-interfaces" was installed.
+[   26.411946] sysmgmt_ss[386]: [INF] Dependency module "ietf-network-instance" was installed.
+[   26.418064] sysmgmt_ss[386]: [INF] Dependency module "ietf-ip" was installed.
+[   26.422205] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   26.428762] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   26.432438] sysmgmt_ss[386]: [INF] Connection 55 created.
+[   26.443159] sysmgmt_ss[386]: [INF] Module "ietf-subscribed-notifications" feature "encode-xml" enabling scheduled.
+[   26.447845] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   26.468645] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   26.746276] sysmgmt_ss[386]: [INF] Module "ietf-subscribed-notifications" feature "encode-xml" was enabled.
+[   26.750439] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   26.782157] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   26.785633] sysmgmt_ss[386]: [INF] Connection 56 created.
+[   26.790121] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   26.805482] sysmgmt_ss[386]: [INF] Enabling feature: replay @ ietf-subscribed-notifications
+[   26.822899] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   26.953518] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   26.957106] sysmgmt_ss[386]: [INF] Connection 57 created.
+[   26.966952] sysmgmt_ss[386]: [INF] Module "ietf-subscribed-notifications" feature "replay" enabling scheduled.
+[   26.971666] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   26.997974] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   27.276942] sysmgmt_ss[386]: [INF] Module "ietf-subscribed-notifications" feature "replay" was enabled.
+[   27.281037] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   27.313730] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   27.317237] sysmgmt_ss[386]: [INF] Connection 58 created.
+[   27.321827] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   27.336812] sysmgmt_ss[386]: [INF] Enabling feature: subtree @ ietf-subscribed-notifications
+[   27.354623] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   27.486413] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   27.488767] sysmgmt_ss[386]: [INF] Connection 59 created.
+[   27.498694] sysmgmt_ss[386]: [INF] Module "ietf-subscribed-notifications" feature "subtree" enabling scheduled.
+[   27.503151] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   27.530018] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   27.809095] sysmgmt_ss[386]: [INF] Module "ietf-subscribed-notifications" feature "subtree" was enabled.
+[   27.813242] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   27.846125] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   27.849755] sysmgmt_ss[386]: [INF] Connection 60 created.
+[   27.854407] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   27.869097] sysmgmt_ss[386]: [INF] Enabling feature: xpath @ ietf-subscribed-notifications
+[   27.886717] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   28.017286] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   28.020926] sysmgmt_ss[386]: [INF] Connection 61 created.
+[   28.031224] sysmgmt_ss[386]: [INF] Module "ietf-subscribed-notifications" feature "xpath" enabling scheduled.
+[   28.035791] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   28.062045] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   28.340365] sysmgmt_ss[386]: [INF] Module "ietf-subscribed-notifications" feature "xpath" was enabled.
+[   28.344698] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   28.377546] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   28.381286] sysmgmt_ss[386]: [INF] Connection 62 created.
+[   28.386025] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   28.594398] sysmgmt_ss[386]: [INF] Installing module: ietf-tls-server @ ietf-tls-server@2019-07-02.yang
+[   28.609522] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   28.739970] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   28.743591] sysmgmt_ss[386]: [INF] Connection 64 created.
+[   28.929855] sysmgmt_ss[386]: [INF] Module "ietf-tls-server" scheduled for installation.
+[   28.937353] sysmgmt_ss[386]: [INF] File "ietf-tls-common@2019-07-02.yang" was installed.
+[   28.945577] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   28.969557] sysmgmt_ss[386]: [INF] Enabling feature: local-client-auth-supported @ ietf-tls-server
+[   28.986601] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   29.291742] sysmgmt_ss[386]: [INF] File "ietf-tls-server@2019-07-02.yang" was installed.
+[   29.297566] sysmgmt_ss[386]: [INF] Module "ietf-tls-server" was installed.
+[   29.301621] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   29.332866] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   29.336496] sysmgmt_ss[386]: [INF] Connection 65 created.
+[   29.347846] sysmgmt_ss[386]: [INF] Module "ietf-tls-server" feature "local-client-auth-supported" enabling scheduled.
+[   29.352450] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   29.376430] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   29.674316] sysmgmt_ss[386]: [INF] Module "ietf-tls-server" feature "local-client-auth-supported" was enabled.
+[   29.677081] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   29.710895] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   29.714435] sysmgmt_ss[386]: [INF] Connection 66 created.
+[   29.719146] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   29.940405] sysmgmt_ss[386]: [INF] Installing module: ietf-netconf-server @ ietf-netconf-server@2019-07-02.yang
+[   29.955775] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   30.094261] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   30.097909] sysmgmt_ss[386]: [INF] Connection 68 created.
+[   30.317916] sysmgmt_ss[386]: [INF] Module "ietf-netconf-server" scheduled for installation.
+[   30.325745] sysmgmt_ss[386]: [INF] File "ietf-tcp-client@2019-07-02.yang" was installed.
+[   30.333152] sysmgmt_ss[386]: [INF] File "ietf-tcp-server@2019-07-02.yang" was installed.
+[   30.337638] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   30.357494] sysmgmt_ss[386]: [INF] Enabling feature: ssh-listen @ ietf-netconf-server
+[   30.376067] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   30.708828] sysmgmt_ss[386]: [INF] File "ietf-netconf-server@2019-07-02.yang" was installed.
+[   30.713828] sysmgmt_ss[386]: [INF] Module "ietf-netconf-server" was installed.
+[   30.717984] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   30.750001] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   30.753618] sysmgmt_ss[386]: [INF] Connection 69 created.
+[   30.763130] sysmgmt_ss[386]: [INF] Module "ietf-netconf-server" feature "ssh-listen" enabling scheduled.
+[   30.767846] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   30.794662] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   31.118585] sysmgmt_ss[386]: [INF] Module "ietf-netconf-server" feature "ssh-listen" was enabled.
+[   31.124364] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   31.160313] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   31.163869] sysmgmt_ss[386]: [INF] Connection 70 created.
+[   31.168682] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   31.184513] sysmgmt_ss[386]: [INF] Enabling feature: tls-listen @ ietf-netconf-server
+[   31.202917] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   31.357069] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   31.360681] sysmgmt_ss[386]: [INF] Connection 71 created.
+[   31.370335] sysmgmt_ss[386]: [INF] Module "ietf-netconf-server" feature "tls-listen" enabling scheduled.
+[   31.374919] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   31.404212] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   31.730903] sysmgmt_ss[386]: [INF] Module "ietf-netconf-server" feature "tls-listen" was enabled.
+[   31.736194] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   31.772775] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   31.776217] sysmgmt_ss[386]: [INF] Connection 72 created.
+[   31.780778] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   31.797356] sysmgmt_ss[386]: [INF] Enabling feature: ssh-call-home @ ietf-netconf-server
+[   31.815960] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   31.969761] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   31.973237] sysmgmt_ss[386]: [INF] Connection 73 created.
+[   31.982794] sysmgmt_ss[386]: [INF] Module "ietf-netconf-server" feature "ssh-call-home" enabling scheduled.
+[   31.987176] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   32.018087] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   32.343430] sysmgmt_ss[386]: [INF] Module "ietf-netconf-server" feature "ssh-call-home" was enabled.
+[   32.349725] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   32.386741] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   32.390143] sysmgmt_ss[386]: [INF] Connection 74 created.
+[   32.394625] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   32.411953] sysmgmt_ss[386]: [INF] Enabling feature: tls-call-home @ ietf-netconf-server
+[   32.430210] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   32.583710] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   32.587177] sysmgmt_ss[386]: [INF] Connection 75 created.
+[   32.596991] sysmgmt_ss[386]: [INF] Module "ietf-netconf-server" feature "tls-call-home" enabling scheduled.
+[   32.601655] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   32.632926] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   32.959185] sysmgmt_ss[386]: [INF] Module "ietf-netconf-server" feature "tls-call-home" was enabled.
+[   32.964842] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   33.003015] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   33.006720] sysmgmt_ss[386]: [INF] Connection 76 created.
+[   33.011420] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   33.246941] sysmgmt_ss[386]: [INF] Found installed module: ietf-network-instance 2019-01-21 I root root 600
+[   33.471718] sysmgmt_ss[386]: [INF] Installing module: ietf-yang-push @ ietf-yang-push@2019-09-09.yang
+[   33.488613] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   33.642137] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   33.645751] sysmgmt_ss[386]: [INF] Connection 79 created.
+[   33.885357] sysmgmt_ss[386]: [INF] Module "ietf-yang-push" scheduled for installation.
+[   33.893011] sysmgmt_ss[386]: [INF] File "ietf-yang-patch@2017-02-22.yang" was installed.
+[   33.905803] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   33.929539] sysmgmt_ss[386]: [INF] Enabling feature: on-change @ ietf-yang-push
+[   33.949380] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   34.321935] sysmgmt_ss[386]: [INF] File "ietf-yang-push@2019-09-09.yang" was installed.
+[   34.326364] sysmgmt_ss[386]: [INF] Module "ietf-yang-push" was installed.
+[   34.330810] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   34.370922] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   34.374667] sysmgmt_ss[386]: [INF] Connection 80 created.
+[   34.383751] sysmgmt_ss[386]: [INF] Module "ietf-yang-push" feature "on-change" enabling scheduled.
+[   34.388284] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   34.421553] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   34.784618] sysmgmt_ss[386]: [INF] Module "ietf-yang-push" feature "on-change" was enabled.
+[   34.794054] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   34.835857] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   34.839592] sysmgmt_ss[386]: [INF] Connection 81 created.
+[   34.844388] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   35.112915] sysmgmt_ss[386]: [INF] Installing module: ietf-yang-types @ oran/Imported Models/ietf-yang-types.yang
+[   35.128938] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   35.302639] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   35.306246] sysmgmt_ss[386]: [INF] Connection 83 created.
+[   35.518870] sysmgmt_ss[386]: [INF] Module "ietf-yang-types" scheduled for installation.
+[   35.536897] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   36.057301] sysmgmt_ss[386]: [INF] Installing module: o-ran-fm @ oran/Common Models/System/o-ran-fm@2021-03-22.yang
+[   36.072968] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   36.246726] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   36.250426] sysmgmt_ss[386]: [INF] Connection 85 created.
+[   36.457567] sysmgmt_ss[386]: [INF] Module "o-ran-fm" scheduled for installation.
+[   36.477533] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   37.000120] sysmgmt_ss[386]: [INF] Installing module: ietf-dhcpv6-types @ oran/Imported Models/ietf-dhcpv6-types@2018-09-04.yang
+[   37.013606] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   37.189455] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   37.193045] sysmgmt_ss[386]: [INF] Connection 87 created.
+[   37.410227] sysmgmt_ss[386]: [INF] Module "ietf-dhcpv6-types" scheduled for installation.
+[   37.429775] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   37.960816] sysmgmt_ss[386]: [INF] Installing module: ietf-inet-types @ oran/Imported Models/ietf-inet-types.yang
+[   37.977150] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   38.157609] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   38.160074] sysmgmt_ss[386]: [INF] Connection 89 created.
+[   38.377451] sysmgmt_ss[386]: [INF] Module "ietf-inet-types" scheduled for installation.
+[   38.397468] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   38.934264] sysmgmt_ss[386]: [INF] Installing module: iana-hardware @ oran/Imported Models/iana-hardware.yang
+[   38.951167] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   39.130317] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   39.134169] sysmgmt_ss[386]: [INF] Connection 91 created.
+[   39.350391] sysmgmt_ss[386]: [INF] Module "iana-hardware" scheduled for installation.
+[   39.369458] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   39.907237] sysmgmt_ss[386]: [INF] Installing module: iana-if-type @ oran/Imported Models/iana-if-type.yang
+[   39.924394] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   40.105612] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   40.109202] sysmgmt_ss[386]: [INF] Connection 93 created.
+[   40.367205] sysmgmt_ss[386]: [INF] Module "iana-if-type" scheduled for installation.
+[   40.388832] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   40.977831] sysmgmt_ss[386]: [INF] Installing module: o-ran-file-management @ oran/Common Models/Operations/o-ran-file-management.yang
+[   40.991436] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   41.181793] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   41.185302] sysmgmt_ss[386]: [INF] Connection 95 created.
+[   41.443566] sysmgmt_ss[386]: [INF] Module "o-ran-file-management" scheduled for installation.
+[   41.464707] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   42.066940] sysmgmt_ss[386]: [INF] Installing module: o-ran-dhcp @ oran/Common Models/Interfaces/o-ran-dhcp@2021-03-22.yang
+[   42.083128] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   42.275000] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   42.278517] sysmgmt_ss[386]: [INF] Connection 97 created.
+[   42.544631] sysmgmt_ss[386]: [INF] Module "o-ran-dhcp" scheduled for installation.
+[   42.551057] sysmgmt_ss[386]: [INF] File "o-ran-wg4-features@2021-03-22.yang" was installed.
+[   42.567932] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   43.185840] sysmgmt_ss[386]: [INF] Installing module: o-ran-mplane-int @ oran/Common Models/Interfaces/o-ran-mplane-int@2021-03-22.yang
+[   43.200716] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   43.398807] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   43.402316] sysmgmt_ss[386]: [INF] Connection 99 created.
+[   43.749711] sysmgmt_ss[386]: [INF] Module "o-ran-mplane-int" scheduled for installation.
+[   43.755839] sysmgmt_ss[386]: [INF] File "o-ran-interfaces@2021-03-22.yang" was installed.
+[   43.762841] sysmgmt_ss[386]: [INF] File "ietf-hardware@2018-03-13.yang" was installed.
+[   43.778940] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   44.497818] sysmgmt_ss[386]: [INF] Installing module: o-ran-transceiver @ oran/Common Models/Interfaces/o-ran-transceiver.yang
+[   44.513968] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   44.730214] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   44.733908] sysmgmt_ss[386]: [INF] Connection 101 created.
+[   45.031196] sysmgmt_ss[386]: [INF] Module "o-ran-transceiver" scheduled for installation.
+[   45.056881] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   45.749112] sysmgmt_ss[386]: [INF] Installing module: o-ran-operations @ oran/Common Models/Operations/o-ran-operations@2021-03-22.yang
+[   45.764294] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   45.984671] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   45.988440] sysmgmt_ss[386]: [INF] Connection 103 created.
+[   46.299938] sysmgmt_ss[386]: [INF] Module "o-ran-operations" scheduled for installation.
+[   46.325918] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   47.037754] sysmgmt_ss[386]: [INF] Installing module: o-ran-software-management @ oran/Common Models/Operations/o-ran-software-management@2021-03-22.yang
+[   47.051155] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   47.277892] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   47.281638] sysmgmt_ss[386]: [INF] Connection 105 created.
+[   47.640101] sysmgmt_ss[386]: [INF] Module "o-ran-software-management" scheduled for installation.
+[   47.646284] sysmgmt_ss[386]: [INF] File "o-ran-hardware@2021-03-22.yang" was installed.
+[   47.668317] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   48.444606] sysmgmt_ss[386]: [INF] Installing module: o-ran-trace @ oran/Common Models/Operations/o-ran-trace.yang
+[   48.463702] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   48.703876] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   48.706578] sysmgmt_ss[386]: [INF] Connection 107 created.
+[   48.991329] sysmgmt_ss[386]: [INF] Module "o-ran-trace" scheduled for installation.
+[   49.020862] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   49.743186] sysmgmt_ss[386]: [INF] Installing module: o-ran-troubleshooting @ oran/Common Models/Operations/o-ran-troubleshooting.yang
+[   49.758648] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   50.000171] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   50.003921] sysmgmt_ss[386]: [INF] Connection 109 created.
+[   50.292860] sysmgmt_ss[386]: [INF] Module "o-ran-troubleshooting" scheduled for installation.
+[   50.321233] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   51.051861] sysmgmt_ss[386]: [INF] Installing module: o-ran-supervision @ oran/Common Models/System/o-ran-supervision@2021-03-22.yang
+[   51.067838] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   51.311011] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   51.314861] sysmgmt_ss[386]: [INF] Connection 111 created.
+[   51.611182] sysmgmt_ss[386]: [INF] Module "o-ran-supervision" scheduled for installation.
+[   51.640465] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   52.378923] sysmgmt_ss[386]: [INF] Installing module: o-ran-lbm @ oran/RU Specific Models/Operations/o-ran-lbm@2021-03-22.yang
+[   52.395709] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   52.641490] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   52.645344] sysmgmt_ss[386]: [INF] Connection 113 created.
+[   52.979478] sysmgmt_ss[386]: [INF] Module "o-ran-lbm" scheduled for installation.
+[   53.011267] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   53.785613] sysmgmt_ss[386]: [INF] Found installed module: ietf-datastores 2018-02-14 I root root 444
+[   54.140176] sysmgmt_ss[386]: [INF] Installing module: ietf-restconf @ oran/Imported Models/ietf-restconf.yang
+[   54.159999] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   54.409158] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   54.412882] sysmgmt_ss[386]: [INF] Connection 116 created.
+[   54.753096] sysmgmt_ss[386]: [INF] Module "ietf-restconf" scheduled for installation.
+[   54.784215] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   55.584046] sysmgmt_ss[386]: [INF] Installing module: ietf-yang-schema-mount @ oran/Imported Models/ietf-yang-schema-mount.yang
+[   55.600636] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   55.850308] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   55.854098] sysmgmt_ss[386]: [INF] Connection 118 created.
+[   56.195161] sysmgmt_ss[386]: [INF] Module "ietf-yang-schema-mount" scheduled for installation.
+[   56.225367] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   57.026234] sysmgmt_ss[386]: [INF] Installing module: ietf-netconf-acm @ oran/Imported Models/ietf-netconf-acm.yang
+[   57.044676] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   57.293899] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   57.297715] sysmgmt_ss[386]: [INF] Connection 120 created.
+[   57.641644] sysmgmt_ss[386]: [INF] Module "ietf-netconf-acm" scheduled for installation.
+[   57.672537] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   58.469234] sysmgmt_ss[386]: [INF] Found installed module: ietf-yang-library 2019-01-04 I root root 644
+[   58.827828] sysmgmt_ss[386]: [INF] Installing module: o-ran-usermgmt @ oran/Common Models/System/o-ran-usermgmt@2020-12-10.yang
+[   58.846212] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   59.097314] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   59.100922] sysmgmt_ss[386]: [INF] Connection 123 created.
+[   59.444891] sysmgmt_ss[386]: [INF] Module "o-ran-usermgmt" scheduled for installation.
+[   59.478161] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   59.508813] sysmgmt_ss[386]: [INF] Trying to apply startup data for o-ran-usermgmt
+[   59.535384] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   60.101064] sysmgmt_ss[386]: [WRN] At least one account needs to be enabled.
+[   60.109157] sysmgmt_ss[386]: [WRN] Failed to apply some changes, leaving all changes scheduled.
+[   60.429827] sysmgmt_ss[386]: [INF] Connection 124 created.
+[   60.435478] sysmgmt_ss[386]: [INF] Session 1 (user "root", CID 124) created.
+[   60.796899] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   60.825425] sysmgmt_ss[386]: [INF] Applied startup data for o-ran-usermgmt
+[   61.583627] sysmgmt_ss[386]: [INF] Found installed module: ietf-hardware 2018-03-13 I root root 600
+[   61.590047] sysmgmt_ss[386]: [INF] Enabling feature: hardware-state @ ietf-hardware
+[   61.609061] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   61.863331] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   61.865689] sysmgmt_ss[386]: [INF] Connection 126 created.
+[   61.878836] sysmgmt_ss[386]: [INF] Module "ietf-hardware" feature "hardware-state" enabling scheduled.
+[   61.897027] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   61.944143] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   62.471583] sysmgmt_ss[386]: [INF] Module "ietf-hardware" feature "hardware-state" was enabled.
+[   62.498142] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   62.573472] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   62.577300] sysmgmt_ss[386]: [INF] Connection 127 created.
+[   62.581965] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   62.612687] sysmgmt_ss[386]: [INF] Enabling feature: hardware-sensor @ ietf-hardware
+[   62.636279] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   62.890181] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   62.892788] sysmgmt_ss[386]: [INF] Connection 128 created.
+[   62.906463] sysmgmt_ss[386]: [INF] Module "ietf-hardware" feature "hardware-sensor" enabling scheduled.
+[   62.925491] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   62.972901] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   63.501048] sysmgmt_ss[386]: [INF] Module "ietf-hardware" feature "hardware-sensor" was enabled.
+[   63.527518] sysmgmt_ss[386]: [INF] Scheduled changes applied.
+[   63.602974] sysmgmt_ss[386]: [INF] Datastore copied from <startup> to <running>.
+[   63.606749] sysmgmt_ss[386]: [INF] Connection 129 created.
+[   63.611507] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   63.987676] sysmgmt_ss[386]: [INF] Found installed module: ietf-interfaces 2018-02-20 I root root 600
+[   64.330362] sysmgmt_ss[386]: [INF] Found installed module: ietf-ip 2018-02-22 I root root 600
+[   64.700098] sysmgmt_ss[386]: [INF] Installing module: o-ran-compression-factors @ oran/RU Specific Models/Radio/o-ran-compression-factors@2021-03-22.yang
+[   64.715488] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   64.968416] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   64.972204] sysmgmt_ss[386]: [INF] Connection 133 created.
+[   65.283095] sysmgmt_ss[386]: [INF] Module "o-ran-compression-factors" scheduled for installation.
+[   65.313012] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   66.097551] sysmgmt_ss[386]: [INF] Installing module: o-ran-delay-management @ oran/RU Specific Models/Radio/o-ran-delay-management@2020-08-10.yang
+[   66.113809] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   66.371957] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   66.374637] sysmgmt_ss[386]: [INF] Connection 135 created.
+[   66.688374] sysmgmt_ss[386]: [INF] Module "o-ran-delay-management" scheduled for installation.
+[   66.720083] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   67.504887] sysmgmt_ss[386]: [INF] Found installed module: o-ran-hardware 2021-03-22 I root root 600
+[   67.872337] sysmgmt_ss[386]: [INF] Found installed module: o-ran-interfaces 2021-03-22 I root root 600
+[   68.249655] sysmgmt_ss[386]: [INF] Installing module: o-ran-module-cap @ oran/RU Specific Models/Radio/o-ran-module-cap@2021-03-22.yang
+[   68.267345] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   68.528811] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   68.531269] sysmgmt_ss[386]: [INF] Connection 139 created.
+[   68.855543] sysmgmt_ss[386]: [INF] Module "o-ran-module-cap" scheduled for installation.
+[   68.889283] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   69.706728] sysmgmt_ss[386]: [INF] Installing module: o-ran-performance-management @ oran/RU Specific Models/Operations/o-ran-performance-management@2021-03-22.yang
+[   69.720113] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   69.988093] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   69.991849] sysmgmt_ss[386]: [INF] Connection 141 created.
+[   70.417540] sysmgmt_ss[386]: [INF] Module "o-ran-performance-management" scheduled for installation.
+[   70.426180] sysmgmt_ss[386]: [INF] File "o-ran-processing-element@2020-04-17.yang" was installed.
+[   70.455729] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   71.401666] sysmgmt_ss[386]: [INF] Found installed module: o-ran-processing-element 2020-04-17 I root root 600
+[   71.805940] sysmgmt_ss[386]: [INF] Installing module: o-ran-sync @ oran/Common Models/Sync/o-ran-sync@2021-03-22.yang
+[   71.827287] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   72.110631] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   72.114428] sysmgmt_ss[386]: [INF] Connection 144 created.
+[   72.518500] sysmgmt_ss[386]: [INF] Module "o-ran-sync" scheduled for installation.
+[   72.558672] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   73.504540] sysmgmt_ss[386]: [INF] Installing module: o-ran-uplane-conf @ oran/RU Specific Models/Operations/o-ran-uplane-conf@2021-03-22.yang
+[   73.524457] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   73.817393] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   73.821410] sysmgmt_ss[386]: [INF] Connection 146 created.
+[   74.271151] sysmgmt_ss[386]: [INF] Module "o-ran-uplane-conf" scheduled for installation.
+[   74.316829] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   75.333357] sysmgmt_ss[386]: [INF] Installing module: o-ran-wg4-features @ oran/Common Models/System/o-ran-wg4-features.yang
+[   75.353599] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   75.677318] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   75.680928] sysmgmt_ss[386]: [INF] Connection 148 created.
+[   76.073392] sysmgmt_ss[386]: [INF] Module "o-ran-wg4-features" scheduled for installation.
+[   76.118694] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   77.125066] sysmgmt_ss[386]: [INF] Installing module: o-ran-ald-port @ oran/Common Models/Interfaces/o-ran-ald-port@2021-03-22.yang
+[   77.145225] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   77.469007] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   77.472636] sysmgmt_ss[386]: [INF] Connection 150 created.
+[   77.866993] sysmgmt_ss[386]: [INF] Module "o-ran-ald-port" scheduled for installation.
+[   77.913211] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   78.914878] sysmgmt_ss[386]: [INF] Installing module: o-ran-ald @ oran/Common Models/Operations/o-ran-ald.yang
+[   78.937764] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   79.263886] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   79.267645] sysmgmt_ss[386]: [INF] Connection 152 created.
+[   79.665431] sysmgmt_ss[386]: [INF] Module "o-ran-ald" scheduled for installation.
+[   79.712464] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   80.724160] sysmgmt_ss[386]: [INF] Installing module: o-ran-externalio @ oran/Common Models/Interfaces/o-ran-externalio.yang
+[   80.745442] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   81.074761] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   81.078453] sysmgmt_ss[386]: [INF] Connection 154 created.
+[   81.480550] sysmgmt_ss[386]: [INF] Module "o-ran-externalio" scheduled for installation.
+[   81.527680] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   82.557671] sysmgmt_ss[386]: [INF] Installing module: vendor-specific-performance-management @ oran/Vendor Specific Models/vendor-specific-performance-management.yang
+[   82.573802] sysmgmt_ss[386]: [INF] Applying scheduled changes.
+[   82.906454] sysmgmt_ss[386]: [INF] No scheduled changes.
+[   82.910345] sysmgmt_ss[386]: [INF] Connection 156 created.
+[   83.385528] sysmgmt_ss[386]: [INF] Module "vendor-specific-performance-management" scheduled for installation.
+[   83.432169] sysmgmt_ss[386]: [INF] No datastore changes to apply.
+[   83.476999] sysmgmt_ss[386]: [INF] Trying to apply startup data for o-ran-mplane-int
+[   85.318729] sysmgmt_ss[386]: [INF] Applied initial data to startup and running datastore for o-ran-mplane-int
+[   85.769431] sysmgmt_ss[386]: ===================================================================
+[   85.776844] sysmgmt_ss[386]: Applying startup configuration to sysrepo...
+[   90.532603] sysmgmt_ss[386]: ===================================================================
+[   90.534204] sysmgmt_ss[305]: Starting netopeer2-server
+[   90.564436] sysmgmt_ss[305]: Adding crontab rule for log cleanup
+[   90.571458] sysmgmt_ss[305]: Starting sysmgmt service
+[   90.572616] sysmgmt_ss[305]: ------------------ Starting set debug ip -------------------
+[   90.600169] sysmgmt_ss[305]: use default dhcp ip
+[   90.600980] sysmgmt_ss[305]: ===================================================================
+Radio Service Start...
+ SWDB name: /usr/bin/N25N66V2/config.json
+ SWDB name: /usr/bin/N25N66V2/config.json
+initDataBase init N25N66V2 Database path done
+
+agilex login: root
+root@agilex:~# rsu_client -F
+librsu: load_spt(): Bad SPT1 magic number 0x879A314B [MED]
+librsu: load_spt(): Bad SPT0 magic number 0x62294895 [MED]
+librsu: load_spt(): error: No valid SPT0 or SPT1 found [LOW]
+FPGA Version  : 4737792
+FPGA Hash     : a650aa86
+FPGA Timestamp: 1726501776 (2024-09-16 15:49:36 UTC)
+Operation completed
+root@agilex:~#
