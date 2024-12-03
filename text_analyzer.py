@@ -5,8 +5,6 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize,sent_tokenize
 from collections import Counter
 import matplotlib.pyplot as plt
-# import matplotlib
-# matplotlib.use('TkAgg')  # Or 'QtAgg', 'MacOSX', etc., depending on your system
 
 from wordcloud import WordCloud
 
