@@ -19,7 +19,7 @@ The following Python packages are required to run the project:
 - `numpy`
 - `matplotlib`
 - `wordcloud`
--  python3-tkinter
+- `python3-tkinter`
 
 You can install these dependencies using the following command:
 
