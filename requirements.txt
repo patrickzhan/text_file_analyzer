@@ -3,3 +3,4 @@ seaborn
 numpy
 matplotlib
 wordcloud
+python3-tkinter

@@ -5,11 +5,15 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize,sent_tokenize
 from collections import Counter
 import matplotlib.pyplot as plt
+# import matplotlib
+# matplotlib.use('TkAgg')  # Or 'QtAgg', 'MacOSX', etc., depending on your system
+
 from wordcloud import WordCloud
 
 # Get the current script directory
-current_path=os.path.dirname(os.path.abspath(__file__))
-nltk_data_path = os.path.join(current_path, 'nltk_data')
+current_path = os.path.dirname(os.path.abspath(__file__)) if '__file__' in globals() else os.getcwd()
+
+nltk_data_path = os.path.join(current_path, "nltk_data")
 if not os.path.exists(nltk_data_path):
     os.makedirs(nltk_data_path)
 
@@ -92,7 +96,8 @@ def generate_wordcloud(word_counts):
 
 def plot_word_frequency_heatmap(word_counts):
     words, counts = zip(*word_counts.most_common(100))  # Get top 100 words
-    heatmap_data = np.array(counts).reshape(10, 10)  # Reshape to 10x10 grid for example
+    heatmap_data = np.pad(np.array(counts), (0, 100 - len(counts)), constant_values=0).reshape(10, 10)
+
     sns.heatmap(heatmap_data, annot=True, fmt="d", xticklabels=words[:10], yticklabels=words[10:20])
     plt.show()
 
@@ -107,12 +112,11 @@ def main():
     # 1. Load the text file
     file_path = sys.argv[1]
     text = load_and_clean_text(file_path)
-    if len(sys.argv)==3:
-        special_word=sys.argv[2]
+    special_word = sys.argv[2] if len(sys.argv) == 3 else None
 
     if text is None:
         print("File not found or could not be read. Exiting.")
-        return  # Exit if the file is invalid
+        sys.exit(2)  # Exit if the file is invalid
   
 
     # 2. Preprocess the text
@@ -122,11 +126,13 @@ def main():
     # 3. Analyze word frequency
     word_counts = get_word_frequency(tokens)
     unique_word_counts=unique_word_count(tokens)
-    word_freq = word_frequency(text, special_word)
+    if len(sys.argv)==3:
+        word_freq = word_frequency(text, special_word)
     text_statistics(text)
 
     # 4. Display results
-    print(f"\nThe frequency of \"{special_word}\":{word_freq}")
+    if len(sys.argv)==3:
+        print(f"\nThe frequency of \"{special_word}\":{word_freq}")
     print("\nTop 10 Words:")
     for word, count in word_counts.most_common(10):
         print(f"{word}: {count}")
